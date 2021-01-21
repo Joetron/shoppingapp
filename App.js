@@ -1,16 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MainScreen from './screens/MainScreen';
-import ProductsScreen from './screens/ProductsScreen';
+import Cart from './screens/Cart';
+import Checkout from './screens/Checkout';
+import Products from './screens/Products';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,8 +11,9 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator initialRouteName="Main">
-        <Tab.Screen name="Main" component={MainScreen} />
-        <Tab.Screen name="Products" component={ProductsScreen} />
+        <Tab.Screen name="Products" component={Products} />
+        <Tab.Screen name="Cart" component={Cart} />
+        <Tab.Screen name="Checkout" component={Checkout} />
       </Tab.Navigator>
     </NavigationContainer>
   );
