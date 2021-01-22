@@ -5,14 +5,14 @@ import { View, StyleSheet } from 'react-native';
 const AddRemove = ({ count, onAdd, onRemove }) => {
   return (
     <View style={styles.controls}>
-      <Icon
-        disabled={count === 0}
-        name={count < 1 ? 'delete' : 'remove'}
-        onPress={onRemove}
-      />
-      <View style={styles.quantityWrapper}>
-        <Text style={styles.quantity}>{count}</Text>
-      </View>
+      {count > 0 && (
+        <Icon name={count === 1 ? 'delete' : 'remove'} onPress={onRemove} />
+      )}
+      {count > 0 && (
+        <View style={styles.quantityWrapper}>
+          <Text style={styles.quantity}>{count}</Text>
+        </View>
+      )}
       <Icon name="add" onPress={onAdd} />
     </View>
   );

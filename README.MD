@@ -9,3 +9,10 @@ From the command line run:
 1. `npm install`
 2. `npm run pod-install`
 3. `npx react-native run-ios`
+
+
+![Alt text](products.png "Title")
+
+![Alt text](cart.png "Title")
+
+![Alt text](checkout.png "Title")
