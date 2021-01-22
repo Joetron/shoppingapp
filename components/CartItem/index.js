@@ -4,7 +4,16 @@ import { TouchableHighlight, StyleSheet } from 'react-native';
 import AddRemove from '../AddRemove';
 
 const CartItem = ({ item }) => {
-  const { id, name, description, icon, price, count } = item;
+  const {
+    id,
+    name,
+    description,
+    icon,
+    price,
+    count,
+    onAddToCart,
+    onRemoveFromCart,
+  } = item;
   return (
     <ListItem
       Component={TouchableHighlight}
@@ -21,7 +30,12 @@ const CartItem = ({ item }) => {
           <Text>{description}</Text>
         </ListItem.Subtitle>
       </ListItem.Content>
-      <AddRemove count={count} />
+      <AddRemove
+        count={count}
+        item={item}
+        onAdd={() => onAddToCart(item)}
+        onRemove={() => onRemoveFromCart(item)}
+      />
     </ListItem>
   );
 };

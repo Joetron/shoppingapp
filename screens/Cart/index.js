@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import AppScreen from '../../components/AppScreen';
+import CartList from '../../containers/CartList';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
@@ -9,10 +10,8 @@ const Cart = () => {
     <AppScreen>
       <View style={styles.body}>
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Products</Text>
-          <Text style={styles.sectionDescription}>
-            A list of products pending purchase goes here
-          </Text>
+          <Text style={styles.sectionTitle}>Cart</Text>
+          <CartList />
         </View>
       </View>
     </AppScreen>

@@ -1,15 +1,24 @@
 import * as React from 'react';
 import { ListItem, Text, Icon } from 'react-native-elements';
-import { TouchableHighlight, View, StyleSheet } from 'react-native';
+import { TouchableHighlight, StyleSheet } from 'react-native';
 import AddRemove from '../AddRemove';
 
 const Product = ({ item }) => {
-  const { id, name, description, icon, price, count } = item;
+  const {
+    id,
+    name,
+    description,
+    icon,
+    price,
+    count,
+    onAddToCart,
+    onRemoveFromCart,
+  } = item;
   return (
     <ListItem
       Component={TouchableHighlight}
       containerStyle={{}}
-      disabledStyle={{ opacity: 0.5 }}
+      disabledStyle={styles.disabledStyle}
       onLongPress={() => console.log('onLongPress()')}
       onPress={() => console.log('onLongPress()')}
       pad={20}>
@@ -22,12 +31,18 @@ const Product = ({ item }) => {
           <Text>{description}</Text>
         </ListItem.Subtitle>
       </ListItem.Content>
-      <AddRemove count={count} />
+      <AddRemove
+        count={count}
+        item={item}
+        onAdd={() => onAddToCart(item)}
+        onRemove={() => onRemoveFromCart(item)}
+      />
     </ListItem>
   );
 };
 
-// const styles = StyleSheet.create({
-// });
+const styles = StyleSheet.create({
+  disabledStyle: { opacity: 0.5 },
+});
 
 export default Product;

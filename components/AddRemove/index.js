@@ -2,8 +2,7 @@ import * as React from 'react';
 import { Text, Icon } from 'react-native-elements';
 import { View, StyleSheet } from 'react-native';
 
-const AddRemove = ({ item }) => {
-  const { count } = item;
+const AddRemove = ({ count, onAdd, onRemove }) => {
   return (
     <View style={styles.controls}>
       <Icon name={count === 1 ? 'trash' : 'remove'} />

@@ -9,7 +9,7 @@ const Checkout = () => {
     <AppScreen>
       <View style={styles.body}>
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Products</Text>
+          <Text style={styles.sectionTitle}>Checkout</Text>
           <Text style={styles.sectionDescription}>
             A user may Checkout here
           </Text>

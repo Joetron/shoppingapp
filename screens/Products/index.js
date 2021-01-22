@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import AppScreen from '../../components/AppScreen';
-import ProductsList from '../../components/ProductsList';
+import ProductsList from '../../containers/ProductsList';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 

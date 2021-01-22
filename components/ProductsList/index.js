@@ -1,28 +1,23 @@
 import * as React from 'react';
 import Product from '../Product';
 import { FlatList } from 'react-native';
-// name, description, imageUri
-const list = [
-  {
-    name: 'Apple',
-    icon: 'apple',
-    description: 'Red Delicious',
-    count: 5,
-  },
-  {
-    name: 'Banana',
-    icon: 'banana',
-    description: 'Organic',
-    count: 5,
-  },
-];
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, onAddToCart, onRemoveFromCart }) => {
   const keyExtractor = (_item, index) => index.toString();
-  const renderItem = (props) => <Product {...props} />;
+  const renderItem = (props) => (
+    <Product
+      {...props}
+      onAddToCart={onAddToCart}
+      onRemoveFromCart={onRemoveFromCart}
+    />
+  );
 
   return (
-    <FlatList keyExtractor={keyExtractor} data={list} renderItem={renderItem} />
+    <FlatList
+      keyExtractor={keyExtractor}
+      data={products}
+      renderItem={renderItem}
+    />
   );
 };
 
