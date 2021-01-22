@@ -1,4 +1,4 @@
-# Philz Coffee App
+# Shopping App
 ## Project Setup
 Setup you development environment using this [link](https://reactnative.dev/docs/environment-setup).
 See instructions for React Native CLI Quick Start.
