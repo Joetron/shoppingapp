@@ -1,4 +1,8 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/actionTypes';
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  PURCHASE,
+} from '../actions/actionTypes';
 
 const initialState = {};
 
@@ -7,6 +11,8 @@ export default function reducer(state = initialState, action) {
   let productCount;
 
   switch (type) {
+    case PURCHASE:
+      return initialState;
     case ADD_TO_CART:
       productCount = state[payload] || 0;
       productCount++;

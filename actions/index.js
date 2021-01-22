@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from './actionTypes';
+import { ADD_TO_CART, REMOVE_FROM_CART, PURCHASE } from './actionTypes';
 
 export function addToCart(product) {
   return { type: ADD_TO_CART, payload: product };
@@ -6,4 +6,8 @@ export function addToCart(product) {
 
 export function removeFromCart(product) {
   return { type: REMOVE_FROM_CART, payload: product };
+}
+
+export function purchaseProducts() {
+  return { type: PURCHASE };
 }

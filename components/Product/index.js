@@ -1,27 +1,24 @@
 import * as React from 'react';
-import { ListItem, Text, Icon } from 'react-native-elements';
-import { TouchableHighlight, StyleSheet } from 'react-native';
+import { ListItem, Text, Image } from 'react-native-elements';
+import { TouchableHighlight, StyleSheet, View } from 'react-native';
 import AddRemove from '../AddRemove';
+import { formatDollars } from '../../utils';
 
 const Product = ({ item }) => {
   const {
-    id,
     name,
     description,
-    icon,
+    src,
     price,
     count,
     onAddToCart,
     onRemoveFromCart,
   } = item;
   return (
-    <ListItem
-      Component={TouchableHighlight}
-      containerStyle={{}}
-      disabledStyle={styles.disabledStyle}
-      onPress={() => console.log('onLongPress()')}
-      pad={20}>
-      <Icon name={icon} />
+    <ListItem Component={TouchableHighlight} pad={20}>
+      <View style={styles.imageWrapper}>
+        <Image source={src} style={styles.image} />
+      </View>
       <ListItem.Content>
         <ListItem.Title>
           <Text>{name}</Text>
@@ -29,6 +26,7 @@ const Product = ({ item }) => {
         <ListItem.Subtitle>
           <Text>{description}</Text>
         </ListItem.Subtitle>
+        <Text style={styles.price}>{formatDollars(price)}</Text>
       </ListItem.Content>
       <AddRemove
         count={count}
@@ -41,7 +39,9 @@ const Product = ({ item }) => {
 };
 
 const styles = StyleSheet.create({
-  disabledStyle: { opacity: 0.5 },
+  imageWrapper: { alignItems: 'center', justifyContent: 'center' },
+  price: { marginTop: 4 },
+  image: { width: 50, height: 50 },
 });
 
 export default Product;

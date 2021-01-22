@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CartItem from '../CartItem';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
+import { Text } from 'react-native-elements';
 
 const CartList = ({ cart, products, onAddToCart, onRemoveFromCart }) => {
   const renderItem = (props) => <CartItem {...props} />;
@@ -12,12 +13,16 @@ const CartList = ({ cart, products, onAddToCart, onRemoveFromCart }) => {
     onRemoveFromCart: onRemoveFromCart,
   }));
 
-  return (
+  return cartProducts.length > 0 ? (
     <FlatList
       keyExtractor={(item) => item.id}
       data={cartProducts}
       renderItem={renderItem}
     />
+  ) : (
+    <View>
+      <Text h4>Cart is empty</Text>
+    </View>
   );
 };
 
