@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, Icon } from 'react-native-elements';
 import { View, StyleSheet } from 'react-native';
 
-const AddRemove = ({ count, onAdd, onRemove }) => {
+const AddRemove = ({ count, inventory, onAdd, onRemove }) => {
   return (
     <View style={styles.controls}>
       {count > 0 && (
@@ -13,7 +13,9 @@ const AddRemove = ({ count, onAdd, onRemove }) => {
           <Text style={styles.quantity}>{count}</Text>
         </View>
       )}
-      <Icon name="add" onPress={onAdd} />
+      {(inventory > 0 || count > 0) && (
+        <Icon name="add" onPress={onAdd} disabled={inventory === 0} />
+      )}
     </View>
   );
 };

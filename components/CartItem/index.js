@@ -11,9 +11,18 @@ const CartItem = ({ item }) => {
     src,
     price,
     count,
+    inventory,
     onAddToCart,
     onRemoveFromCart,
   } = item;
+
+  let inventoryMessage;
+  if (inventory === 0) {
+    inventoryMessage = 'Out of stock';
+  } else if (inventory < 10) {
+    inventoryMessage = `Hurry! Only ${inventory} left!`;
+  }
+
   return (
     <ListItem Component={TouchableHighlight} pad={20}>
       <View style={styles.imageWrapper}>
@@ -26,9 +35,13 @@ const CartItem = ({ item }) => {
         <ListItem.Subtitle>
           <Text>{description}</Text>
         </ListItem.Subtitle>
+        {inventoryMessage && (
+          <Text style={styles.inventory}>{inventoryMessage}</Text>
+        )}
       </ListItem.Content>
       <AddRemove
         count={count}
+        inventory={inventory}
         item={item}
         onAdd={() => onAddToCart(item.id)}
         onRemove={() => onRemoveFromCart(item.id)}
@@ -41,6 +54,7 @@ const CartItem = ({ item }) => {
 const styles = StyleSheet.create({
   imageWrapper: { alignItems: 'center', justifyContent: 'center' },
   image: { width: 50, height: 50 },
+  inventory: { marginTop: 4, fontStyle: 'italic' },
 });
 
 export default CartItem;
