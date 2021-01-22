@@ -1,19 +1,19 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/actionTypes';
 
-const initialState = [
-  {
+const initialState = {
+  apple: {
     id: 'apple',
     name: 'Apple',
     icon: 'apple',
     description: 'Red Delicious',
   },
-  {
+  banana: {
     id: 'banana',
     name: 'Banana',
     icon: 'banana',
     description: 'Organic',
   },
-];
+};
 
 export default function reducer(state = initialState, action) {
   const { type } = action;

@@ -19,7 +19,6 @@ const Product = ({ item }) => {
       Component={TouchableHighlight}
       containerStyle={{}}
       disabledStyle={styles.disabledStyle}
-      onLongPress={() => console.log('onLongPress()')}
       onPress={() => console.log('onLongPress()')}
       pad={20}>
       <Icon name={icon} />
@@ -34,8 +33,8 @@ const Product = ({ item }) => {
       <AddRemove
         count={count}
         item={item}
-        onAdd={() => onAddToCart(item)}
-        onRemove={() => onRemoveFromCart(item)}
+        onAdd={() => onAddToCart(item.id)}
+        onRemove={() => onRemoveFromCart(item.id)}
       />
     </ListItem>
   );

@@ -2,20 +2,20 @@ import * as React from 'react';
 import Product from '../Product';
 import { FlatList } from 'react-native';
 
-const ProductsList = ({ products, onAddToCart, onRemoveFromCart }) => {
-  const keyExtractor = (_item, index) => index.toString();
-  const renderItem = (props) => (
-    <Product
-      {...props}
-      onAddToCart={onAddToCart}
-      onRemoveFromCart={onRemoveFromCart}
-    />
-  );
+const ProductsList = ({ products, cart, onAddToCart, onRemoveFromCart }) => {
+  const renderItem = (props) => <Product {...props} />;
+
+  const cartProducts = Object.keys(products).map((id) => ({
+    ...products[id],
+    count: id in cart ? cart[id] : 0,
+    onAddToCart: onAddToCart,
+    onRemoveFromCart: onRemoveFromCart,
+  }));
 
   return (
     <FlatList
-      keyExtractor={keyExtractor}
-      data={products}
+      keyExtractor={(item) => item.id}
+      data={cartProducts}
       renderItem={renderItem}
     />
   );

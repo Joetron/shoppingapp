@@ -33,8 +33,8 @@ const CartItem = ({ item }) => {
       <AddRemove
         count={count}
         item={item}
-        onAdd={() => onAddToCart(item)}
-        onRemove={() => onRemoveFromCart(item)}
+        onAdd={() => onAddToCart(item.id)}
+        onRemove={() => onRemoveFromCart(item.id)}
       />
     </ListItem>
   );
