@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import AppScreen from '../../components/AppScreen';
+import ProductsList from '../../components/ProductsList';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
@@ -10,9 +11,7 @@ const Products = () => {
       <View style={styles.body}>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Products</Text>
-          <Text style={styles.sectionDescription}>
-            A list of products goes here
-          </Text>
+          <ProductsList />
         </View>
       </View>
     </AppScreen>
